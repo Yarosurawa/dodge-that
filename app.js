@@ -56,9 +56,9 @@ function phisFrame(){
 
 
             player.vy -= 0.1
-            if (player.pressingLeft && player.pressingRight) {} else if (player.pressingLeft && player.vx > -5) {
+            if (player.pressingLeft && player.pressingRight) {} else if (player.pressingLeft && player.vx > -5 * acceleration) {
                 player.vx -= 0.25 * acceleration
-            } else if (player.pressingRight && player.vx < 5) {
+            } else if (player.pressingRight && player.vx < 5 * acceleration) {
                 player.vx += 0.25 * acceleration
             }
             player.x += player.vx
