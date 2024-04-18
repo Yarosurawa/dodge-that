@@ -58,8 +58,11 @@ function phisFrame(){
             player.elem.style.top = player.y + "px"
 
             enemies.forEach((enem)=>{
+                enem.life += 1
                 if (getDistance(enem.xc, player.xc, enem.yc, player.yc) < 35) {
-                    gameOver()
+                    if (enem.life > 120) {
+                        gameOver()
+                    }
                 }
             })
             if (player.x > window.innerWidth || player.x < -50 || player.y > window.innerHeight || player.y < -50) (
@@ -126,8 +129,22 @@ addEventListener("keydown", ()=>{
 })
 
 function moveUranium() {
-    uranium.x = Math.floor((Math.random()*(window.innerWidth - 30)+1) / 20) * 20
-    uranium.y = Math.floor((Math.random()*(window.innerHeight - 30)+1) / 20) * 20
+    var randomW = Math.floor((Math.random()*(window.innerWidth - 30)+1) / 20) * 20
+    var randomH = Math.floor((Math.random()*(window.innerHeight - 30)+1) / 20) * 20
+    if (enemies[0]) {
+            enemies.forEach((enem)=>{
+            if(randomW != enem.x && randomH != enem.y) {
+                uranium.x = randomW
+                uranium.y = randomH
+            } else {
+                moveUranium()
+                return;
+            }
+        })
+    } else {
+        uranium.x = randomW
+        uranium.y = randomH
+    }
     uranium.xc = uranium.x + 10
     uranium.yc = uranium.y + 10
     uranium.elem.style.left = uranium.x + "px"
