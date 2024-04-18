@@ -147,14 +147,14 @@ addEventListener("keydown", ()=>{
 function moveUranium() {
     var randomW = Math.floor((Math.random()*(window.innerWidth - 30)+1) / 20) * 20
     var randomH = Math.floor((Math.random()*(window.innerHeight - 30)+1) / 20) * 20
-    if (enemies[0]) {
+    if (enemies[0] !== undefined) {
             enemies.forEach((enem)=>{
-            if(randomW != enem.x && randomH != enem.y) {
-                uranium.x = randomW
-                uranium.y = randomH
-            } else {
+            if(randomW == enem.x && randomH == enem.y) {
                 moveUranium()
                 return;
+            } else {
+                uranium.x = randomW
+                uranium.y = randomH
             }
         })
     } else {
