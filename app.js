@@ -76,7 +76,7 @@ function phisFrame(){
                     }
                 }
             })
-            if (player.x > window.innerWidth || player.x < -50 || player.y > window.innerHeight || player.y < -50) (
+            if (player.xc > window.innerWidth || player.xc < 0 || player.yc > window.innerHeight || player.yc < 0) (
                 gameOver()
             )
 
