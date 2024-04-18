@@ -4,6 +4,30 @@
     font-family: "Jacquard 24", system-ui;
     font-weight: 400;
     font-style: normal;
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    width: 100vw;
+    position: absolute;
+    transition: opacity 2s ease;
+}
+
+#leftbtn {
+    width: calc(25vw - 10px);
+    height: calc(100vh - 10px);
+    border: 5px dashed #777;
+}
+#rightbtn {
+    width: calc(25vw - 10px);
+    height: calc(100vh - 10px);
+    border: 5px dashed #777;
+}
+#jumpbtn {
+    width: calc(50vw - 10px);
+    height: calc(100vh - 10px);
+    border: 5px dashed #777;
 }
 
 body {
@@ -13,10 +37,13 @@ body {
 }
 
 #gameOverText {
+    line-height: 0 a;
     position: absolute;
-    transform: translate(calc(100% - 100px), -400px);
+    width: 100vw;
+    transform: translateY(-100vh);
+    text-align: center;
     color: white;   
-    font-size: 200px
+    font-size: 20vw;
 }
 
 #player {
@@ -83,5 +110,25 @@ body {
     0% {
         background-color: #060;
         box-shadow: 0 0 10px 0 #070, inset 0 0 0 2px #0f01, inset 0 0 0 5px #0f01, inset 0 0 0 10px #00ff0005;
+    }
+}
+
+@media screen and (max-width: 900px){
+    #player {
+        width: 25px;
+        height: 25px;
+        border-radius: 20px;
+    }
+
+    .enemy {
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+    }
+
+    #uranium {
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
     }
 }
