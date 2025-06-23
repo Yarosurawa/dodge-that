@@ -25,6 +25,13 @@ let gameStarted = 0;
 let gameStopped = 0;
 let score = 0;
 
+try {
+    const parsedUrl = new URL(window.location.href);
+    frameRate = parsedUrl.searchParams.get("frameRate")
+} catch (error) {
+    frameRate = 60
+}
+
 player.elem.style.left = player.x + "px"
 player.elem.style.top = player.y + "px"
 
@@ -88,7 +95,7 @@ function phisFrame(){
             }
 
             phisFrame()
-        }, 1000/60)
+        }, 1000/frameRate)
         
     }
 }
