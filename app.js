@@ -101,6 +101,7 @@ function gameStart() {
         else if (e.code == "KeyA" || e.code == "ArrowLeft") {    player.pressingLeft = true;    }
         else if (e.code == "KeyD" || e.code == "ArrowRight") {   player.pressingRight = true;   }
         else if (e.code == "Escape") {   gameOver()                     }
+        else if (e.code == "KeyP") { gameStopped = !gameStopped; phisFrame(); }
     })
     
     addEventListener("keyup", (e)=>{
@@ -119,6 +120,7 @@ function createEnemy(x, y) {
     document.getElementById("enemies").innerHTML += `<div class="enemy" id="enemy${numOfEnemies}"><div>`
     document.getElementById("enemy" + numOfEnemies).style.left = x + "px"
     document.getElementById("enemy" + numOfEnemies).style.top = y + "px"
+    console.log(enemies);
     numOfEnemies++
 }
 
@@ -128,7 +130,7 @@ function gameOver() {
     document.getElementById("gameOverText").style.transition = "transform 1s ease"
     document.getElementById("gameOverText").style.transform = "translateX(0)"
     gameStopped = 1
-    setTimeout(()=>{location.reload()}, 4000)
+    //setTimeout(()=>{location.reload()}, 4000)
 }
 
 addEventListener("keydown", ()=>{
@@ -145,16 +147,17 @@ addEventListener("keydown", ()=>{
 })
 
 function moveUranium() {
-    var randomW = Math.floor((Math.random()*(window.innerWidth - 30)+1) / 20) * 20
-    var randomH = Math.floor((Math.random()*(window.innerHeight - 30)+1) / 20) * 20
-    if (enemies[0] !== undefined) {
+    randomW = Math.floor((Math.random()*(window.innerWidth - 30)+1) / 20) * 20
+    randomH = Math.floor((Math.random()*(window.innerHeight - 30)+1) / 20) * 20
+    
+    if (enemies[0]) {
             enemies.forEach((enem)=>{
             if(randomW == enem.x && randomH == enem.y) {
                 moveUranium()
-                return;
             } else {
                 uranium.x = randomW
                 uranium.y = randomH
+                return;
             }
         })
     } else {
