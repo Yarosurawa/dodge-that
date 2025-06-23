@@ -137,7 +137,7 @@ function gameOver() {
     document.getElementById("gameOverText").style.transition = "transform 1s ease"
     document.getElementById("gameOverText").style.transform = "translateX(0)"
     gameStopped = 1
-    //setTimeout(()=>{location.reload()}, 4000)
+    setTimeout(()=>{location.reload()}, 2000)
 }
 
 addEventListener("keydown", ()=>{
