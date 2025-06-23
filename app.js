@@ -51,7 +51,7 @@ let uranium = {
 
 function phisFrame(){
     if (!gameStopped) {
-        requestAnimationFrame(()=>{
+        setTimeout(()=>{
 
 
 
@@ -88,7 +88,8 @@ function phisFrame(){
             }
 
             phisFrame()
-        })
+        }, 1000/60)
+        
     }
 }
 
