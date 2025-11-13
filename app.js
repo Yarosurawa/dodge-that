@@ -108,7 +108,7 @@ function gameStart() {
         if (e.code == "KeyW" || e.code == "Space" || e.code == "ArrowUp" ) {   player.vy += 5  * acceleration }
         else if (e.code == "KeyA" || e.code == "ArrowLeft") {    player.pressingLeft = true;    }
         else if (e.code == "KeyD" || e.code == "ArrowRight") {   player.pressingRight = true;   }
-        else if (e.code == "Escape" || e.code == "KeyP") {   gameStopped = !gameStopped; phisFrame(); alert("why u stoppin the game mark? scawed?")       }
+        else if (e.code == "Escape" || e.code == "KeyP") {   gameStopped = !gameStopped; phisFrame();        }
     })
     
     addEventListener("keyup", (e)=>{
